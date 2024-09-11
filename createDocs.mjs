@@ -43,10 +43,10 @@ export const methods:IMethods ={
   fs.appendFileSync("./docs.ts", result.join(""));
 }
 
-//Create ravencoin_method.md
+//Create aidpcoin_method.md
 {
   const result = [];
-  result.push("# Ravencoin remote procedure calls/methods");
+  result.push("# Aidpcoin remote procedure calls/methods");
   result.push("\r\n[Home](README.md)");
   for (let key of keys) {
     if (!key) {
@@ -57,5 +57,5 @@ export const methods:IMethods ={
     result.push("\r\n## " + key);
     result.push(`\r\n&nbsp;<br/>  ${doc} `);
   }
-  fs.writeFileSync("./ravencoin_methods.md", result.join(""));
+  fs.writeFileSync("./aidpcoin_methods.md", result.join(""));
 }

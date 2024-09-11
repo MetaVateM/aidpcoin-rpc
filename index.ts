@@ -63,9 +63,9 @@ export function getRPC(username: string, password: string, URL: string) {
             rejectionFunc({
               originalError: e,
               type: "ServerUnreachable",
-              error: "Could not communicate with Raven core node",
+              error: "Could not communicate with Aidp core node",
               description:
-                "Are you sure that the URL is correct? The URL is usually mainnet = http://127.0.0.1:8766 and testnet =  http://127.0.0.1:18766",
+                "Are you sure that the URL is correct? The URL is usually mainnet = http://127.0.0.1:18001 and testnet =  http://127.0.0.1:18002",
             });
           });
       } catch (e) {

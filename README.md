@@ -1,36 +1,36 @@
-# ravencoin-rpc
+# aidpcoin-rpc
 
-A package that will help you do RPC calls from Node.js to your Raven core node, that is your full Ravencoin node.
+A package that will help you do RPC calls from Node.js to your Aidpcoin core node, that is your full Aidpcoin node.
 
-URLs for locally installed Ravencoin nodes.
+URLs for locally installed Aidpcoin nodes.
 
-- http://127.0.0.1:8766 for mainnet
-- http://127.0.0.1:18766 for testnet
+- http://127.0.0.1:18001 for mainnet
+- http://127.0.0.1:18002 for testnet
 
 Ravencoin as a service, you don't need your own node
 
-- https://rvn-rpc-mainnet.ting.finance/rpc for mainnet
-- https://rvn-rpc-testnet.ting.finance/rpc for testnet
+- https://aidp-rpc-mainnet.ting.finance/rpc for mainnet
+- https://aidp-rpc-testnet.ting.finance/rpc for testnet
 
 # Install
 
 ```
-npm install @ravenrebels/ravencoin-rpc
+npm install @metavatem/aidpcoin-rpc
 ```
 
 # Example using ES modules
 
-This example uses Ravencoin as a service from https://rpc.ting.finance.
+This example uses Aidpcoin as a service from https://rpc.ting.finance.
 
 In node.js you need to give the file the ending .mjs for modular JavaScript.
 Like `example.mjs`
 
 ```
-import { getRPC, methods } from "@ravenrebels/ravencoin-rpc";
+import { getRPC, methods } from "@metavatem/aidpcoin-rpc";
 
 const username = "anonymous";
 const password = "anonymous";
-const URL = "https://rvn-rpc-mainnet.ting.finance/rpc";
+const URL = "https://aidp-rpc-mainnet.ting.finance/rpc";
 const rpc = getRPC(username, password, URL);
 
 const params = [];
@@ -41,7 +41,7 @@ rpc(methods.getblockcount, params).then(console.log);
 
 ```
 
-const { getRPC, methods } = require("@ravenrebels/ravencoin-rpc");
+const { getRPC, methods } = require("@metavatem/aidpcoin-rpc");
 //methods is a list of all available methods/functions/commands/procedures
 
 const rpc = getRPC("UsernameSecret", "PasswordSecret", "http://localhost:8766");
@@ -70,7 +70,7 @@ Use method `listreceivedbyaddress` to receive a list of all generated addresses.
 Write the result to a .json file
 
 ```
-const { getRPC, methods } = require("@ravenrebels/ravencoin-rpc");
+const { getRPC, methods } = require("@metavatem/aidpcoin-rpc");
 //methods is a list of all available methods/functions/commands/procedures
 
 const method = methods.listreceivedbyaddress;
@@ -79,7 +79,7 @@ const includeEmpty = true;
 
 const params = [minConfirmations, includeEmpty];
 
-const rpc = getRPC("UsernameSecret", "PasswordSecret", "http://localhost:8766");
+const rpc = getRPC("UsernameSecret", "PasswordSecret", "http://localhost:18001");
 
 const promise = rpc(method, params);
 promise.catch((e) => {
@@ -105,9 +105,9 @@ function writeToFile(list){
 
 # Methods / commands / Procedure calls
 
-Here is a list of all method/commands [All methods](ravencoin_methods.md)
+Here is a list of all method/commands [All methods](aidpcoin_methods.md)
 
-In your local Raven core wallet, you can go to
+In your local Aidpcoin core wallet, you can go to
 
 help > debug window > console
 
@@ -135,8 +135,8 @@ listmyassets "( asset )" ( verbose ) ( count ) ( start ) (confs)
 purgesnapshot "asset_name" block_height
 reissue "asset_name" qty "to_address" "change_address" ( reissuable ) ( new_units) "( new_ipfs )"
 transfer "asset_name" qty "to_address" "message" expire_time "change_address" "asset_change_address"
-transferfromaddress "asset_name" "from_address" qty "to_address" "message" expire_time "rvn_change_address" "asset_change_address"
-transferfromaddresses "asset_name" ["from_addresses"] qty "to_address" "message" expire_time "rvn_change_address" "asset_change_address"
+transferfromaddress "asset_name" "from_address" qty "to_address" "message" expire_time "aidp_change_address" "asset_change_address"
+transferfromaddresses "asset_name" ["from_addresses"] qty "to_address" "message" expire_time "aidp_change_address" "asset_change_address"
 
 == Blockchain ==
 clearmempool
@@ -270,7 +270,7 @@ abortrescan
 addmultisigaddress nrequired ["key",...] ( "account" )
 addwitnessaddress "address"
 backupwallet "destination"
-bumpfee has been deprecated on the RVN Wallet.
+bumpfee has been deprecated on the AIDP Wallet.
 dumpprivkey "address"
 dumpwallet "filename"
 encryptwallet "passphrase"
